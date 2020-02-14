@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/fantasque-sans-mono" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <style>
+            body 
+            {
+                background: url(/resources/iframe%20bgimage.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                
+                -webkit-background: url(/resources/iframe%20bgimage.png);
+                -webkit-background-size: cover;
+                -webkit-background-repeat: no-repeat;
+                
+                -moz-background: url(/resources/iframe%20bgimage.png);
+                -moz-background-size: cover;
+                -moz-background-repeat: no-repeat;
+                
+                text-align: center;
+                align-content: center;
+                color: #54bf40;
+                font-size: 3.5vw;
+                font-family: 'FantasqueSansMonoRegular';
+            }
+            h1
+            {
+                font-family: 'FantasqueSansMonoRegular';
+            }
+            h2
+            {
+                font-family: 'FantasqueSansMonoRegular';
+            }
+            ul
+            {
+                list-style: none;
+            }
+            button
+            {
+                border-style: none;
+                background: transparent;
+                color: aliceblue;
+                font-family: 'FantasqueSansMonoRegular';
+                font-size: 1.5vw;
+            }
+            button:hover
+            {
+                    color: #54bf40;
+                background-color: rgba(0, 0, 0, 0.94); 
+                  /* Start the shake animation and make the animation last for 0.5 seconds */
+              animation: shake 0.5s;
+
+              /* When the animation is finished, start again */
+              animation-iteration-count:1;
+            }
+            
+            .tausCarousel
+            {
+                position: relative;
+                height: 600px;
+                width: 70%;
+                /*overflow: hidden;*/
+                margin: 0 auto;
+            }
+            
+            .image
+            {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .slide 
+            {
+                position: absolute;
+                top:0;
+                bottom: 0;
+                width: 100%;
+
+                
+            }
+            .track
+            {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                position: relative;
+                height: 100%;
+                transition-duration: 1.5s;
+            }
+            .container
+            {
+                height: 100%;
+                position: relative;
+            }
+        </style>
+        
+        <h1>My Games</h1>
+        <ul>
+            <li><button>The Aftermath&#58; Unnatural Selection</button><br/><br/>
+                <div class="tausCarousel">
+                    
+                    <div class="container">
+                        
+                        <ul class="track">
+                            
+                            <li class="slide slide-current"><img class="image" src="/resources/games/theaftermath/ss0.png" alt="TheAftermath_image"></li>
+                            <li class="slide"><img class="image" src="/resources/games/theaftermath/ss1.png" alt="TheAftermath_image"></li>
+                            <li class="slide"><img class="image" src="/resources/games/theaftermath/ss2.png" alt="TheAftermath_image"></li>
+                            <li class="slide"><img class="image" src="/resources/games/theaftermath/ss3.png" alt="TheAftermath_image"></li>
+                            <li class="slide"><img class="image" src="/resources/games/theaftermath/ss4.png" alt="TheAftermath_image"></li>
+                            
+                        </ul>
+                        
+                    </div>
+                    
+                </div>
+                <p>breif description here...</p>
+            </li>            <li><button>Point &amp; Click Man</button><br/><br/>
+                <img src="/resources/games/pacMan.png" alt="pAcMan_image">
+                <p>breif description here...</p>
+            </li>
+        </ul>
+        
+        <script>
+            const container = document.querySelector('.track');
+            const images    = Array.from(container.children);
+            const imgWidth  = images[0].getBoundingClientRect().width;
+            
+            
+            //Align images into single line
+            const alignImages = (img, index) =>
+            {
+                $(img).css('left', (imgWidth * index) + 'px');
+            }
+            images.forEach(alignImages);
+            
+            //Movement Variables
+            var i = images.length - 1;
+            var sec = 2;
+            const delay = sec * 1000;
+            var timer;
+            
+            var getCurrentSlide = () => 
+            {
+                return container.querySelector('.slide-current');
+            }
+            
+            var getNextSlide = () => 
+            {
+                
+                if (i < images.length - 1)
+                {
+                    i++;
+                }
+                else
+                {
+                    i = 0;
+                }
+                return images[i];
+            }
+            
+            const moveSlides = () => 
+            {
+                //Set Current and Next Slides
+                var curSlide = getCurrentSlide();
+                var nextSlide = getNextSlide();
+                
+                //Move Slides
+                const moveAmount = $(nextSlide).css('left');
+                $(container).css('transform', 'translateX(' + moveAmount + ')');
+                
+                //Update Current Slide
+                $(curSlide).removeClass('slide-current');
+                $(nextSlide).addClass('slide-current');
+                
+                timer = window.setTimeout(function(){ moveSlides();}, delay);
+                
+            }
+            
+            window.onload = () => 
+            {
+                timer = window.setTimeout(function(){ moveSlides();}, delay);
+            }
+        </script>
+    </body>
+</html>
