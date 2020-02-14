@@ -20,12 +20,12 @@ body
 }
 .banner
 {
-    width: 100vmax;
+    width: 100vw;
     top: 0;
     left: 0;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.94);
-    height:   15.5vh;
+    max-height:   15.5vh;
     /*align-content: center;*/
 }
 button
@@ -42,18 +42,18 @@ button:focus
     float: left;
     /*color: aliceblue;*/
     font-size: 1.5vw;
-    height: 15vh;
+    max-height: 15vh;
 }
 .banner-right
 {
     float: right;
-    height: 15vh;
+    max-height: 15vh;
     width: auto;
 }
 img
 {
     cursor: pointer;
-    height: 12vh;
+    max-height: 4vh;
     max-width: 100%;
     padding: 2vh;
 }
@@ -110,7 +110,7 @@ ul
     min-width: 5vw;
     max-width: 12vw;
     text-align: center;
-    height: 70vh;
+    height: 40vh;
     display:inline-grid;
     grid-row-gap: 25vh;
     align-content: center;
@@ -144,18 +144,21 @@ ul
 {
     max-width: 70vw;
     min-width: 15vw;
-    height: 82vh;
+    height: 80vh;
     margin: auto;
-    overflow: hidden;
+    overflow:hidden;
 }
 .page-display
 {
+    display: block;
+    margin: auto;
+    width: 101.5%;
     padding: 5vh;
     height: 100%;
-    width: 101.5%;
     border-style: none;
     padding: 0;
 }
+
 
 .navButton-selected
 {
