@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+        <title>Home | Anton Stechman Resume</title>
+        <link rel="stylesheet" href="css/styling.css">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/fantasque-sans-mono" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="bannerContainer">
+            <div class="banner">
+                <div class="innerBanner">
+                    <div class="banner-right">
+                        <a href="https://www.linkedin.com/in/anton-stechman-611807183/" target="_blank"><img src="resources/linkedin_logo.png" alt="Linkedin_Logo"></a>
+                        <a href="https://github.com/Anton-Stechman" target="_blank"><img src="resources/github_logo.png" alt="GitHub_Logo"></a>
+                        <a onclick="loadPage('html/landingPage.html',null,'Home | Anton Stechman Resume')"><img src="resources/home_logo.png" alt="Home_Logo"></a>
+                        <a href="/resources/Anton.Stechman.cv.pdf" download><img src="resources/download_logo.png" alt="Download_Logo"></a>
+                    </div>
+                    <div class="banner-left">
+                        <div class="inner-left"><h1>Anton Stechman</h1></div>
+                        <div class="inner-right"><p>021 191 8856</p><p>Stechman.AB@Gmail.com</p></div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="mainPage">
+            <div class="panel panel-left">
+                <ul class="buttons-left">
+                    <li><button class="navButton" onclick="loadPage('html/coverLetter.html',this,'About | Anton Stechman Resume')">&nbsp;About Me&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/skills.html',this,'Skills | Anton Stechman Resume')">&nbsp;Skills&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this,'Education')">&nbsp;Education&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/employment.html',this, 'Employment | Anton Stechman Resume')">&nbsp;Employment&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'Contact | Anton Stechman Resume')">&nbsp;Contact&nbsp;</button></li><br/>
+                </ul>
+            </div>
+            <div class="panel panel-right">
+                <ul class="buttons-right">
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'Games | Anton Stechman Resume')">&nbsp;Games&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'Websites | Anton Stechman Resume')">&nbsp;Websites&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'Apps | Anton Stechman Resume')">&nbsp;Apps&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'C# | Anton Stechman Resume')">&nbsp;C#&nbsp;</button></li><br/>
+                    <li><button class="navButton" onclick="loadPage('html/comingSoon.html',this, 'Java | Anton Stechman Resume')">&nbsp;JAVA&nbsp;</button></li><br/>
+                </ul>
+            </div>
+            <div class="panel-center">
+                <iframe class="page-display" src="html/landingPage.html"></iframe>
+            </div>
+        </div>
+        <footer>
+        </footer>
+        <script src="javascript/main.js"></script>
+    </body>
+</html>
