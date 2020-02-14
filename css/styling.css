@@ -1,16 +1,14 @@
 body
 {
-    background-image: url("/resources/bg_gif.gif");
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    -webkit-background-image: url("/resources/bg_gif.gif");
-    -webkit-background-repeat: no-repeat;
+    background: black;
+    background: url(/resources/bg_gif.gif),no-repeat;
+    background: cover;
+
+    -webkit-background: url(/resources/bg_gif.gif),no-repeat;
     -webkit-background-size: cover;
-    
-    -moz-background-image: url("/resources/bg_gif.gif");
-    -moz-background-repeat: no-repeat;
-    -moz-background-size: cover;
+
+    -moz-background: url(/resources/bg_gif.gif),no-repeat;
+    -moz-background: cover;
     
     font-family: 'FantasqueSansMonoRegular';
     color: #54bf40;
