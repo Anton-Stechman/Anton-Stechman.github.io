@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatiable" content="IE=edge">
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/fantasque-sans-mono" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <style>
+            body 
+            {
+                background-image: url(/resources/iframe%20bgimage.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                text-align: center;
+                font-family: serif;
+                align-content: center;
+                color: #54bf40;
+                font-size: 2.5vw;
+                font-family: 'FantasqueSansMonoRegular';
+            }
+            h1
+            {
+                font-family: 'FantasqueSansMonoRegular';
+            }
+            h2
+            {
+                font-family: 'FantasqueSansMonoRegular';
+            }
+        </style>
+        
+        <h1>About Me...</h1>
+        <div class="aboutMe"></div>
+        <script>
+            
+            var abtMe;
+            const abMeFile = "/resources/aboutMe.TXT";
+            const printArea = document.querySelector('.aboutMe');
+            
+            window.onload = () => {readTextFile(abMeFile);}
+            
+            function readTextFile(file)
+            {
+                var rawFile = new XMLHttpRequest();
+                rawFile.open("GET", file, false);
+                rawFile.onreadystatechange = function ()
+                {
+                    if(rawFile.readyState === 4)
+                    {
+                        if(rawFile.status === 200 || rawFile.status == 0)
+                        {
+                            var allText = rawFile.responseText;
+                            //alert(allText);
+                            printArea.innerHTML = allText;
+                        }
+                    }
+                }
+                rawFile.send(null);
+            }
+        </script>
+    </body>
+</html>

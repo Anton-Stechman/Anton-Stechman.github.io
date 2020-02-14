@@ -1,0 +1,33 @@
+<p>
+Hello,<br/>
+My Name is Anton. I am 30 Years old, I have three children.<br/>
+I am a hobbyist Game Developer, in the 'Games' Section of this Website<br/> 
+you will find some of my creations.<br/> 
+I first took up Game Deveopment 6 years ago<br/>
+after a bit of researching I found the Unity3D Game Engine<br/>
+I found I quite enjoyed playing around with it and building scenes<br/>
+eventually I started to get into the programming side of Game dev loved it<br/>
+since then I have been practicing, learning and developing my skills<br/>
+in hopes that I could one day become a Software Engineer<br/>  
+</p>
+<p>
+Early last year &#40;2019&#41; I decided to resign from my Position<br/>
+as Butchery Manager at Raeward Fresh Harewood to pursue my dream career<br/>
+since then I have undertaken a Diploma in Web Development through The Open Polytech<br/>
+I have been really enjoying studying knowing that I am working towards my future!<br/>
+since I have been studying I have achieved some great results<br/> 
+and have almosted completed my Diploma!<br/>
+</p>
+<p>
+Starting March 2020 I will be starting a Bachelors Degree in IT<br/>
+I am hoping to have this completed by mid 2021.<br/>
+</p>
+<p>
+<h1>Hobbies</h1>
+Since I have three children, work full time and study I don't get alot of time ot myself.<br/>
+but when I do I enjoy gaming &#40;on PC of-course&#41;<br/>
+I also enjoy Music be it listening to it or making it. I have been playing Guitar for 15 years<br/>
+I first started playing the guitar when i was 15, I have been in bands and love it<br/>
+amoung these I also like to spend any time I can learning new programming languages<br/>
+or learning more about the ones I do know.
+</p>
