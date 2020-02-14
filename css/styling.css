@@ -20,12 +20,12 @@ body
 }
 .banner
 {
-    width: 100vw;
+    width: 100vmax;
     top: 0;
     left: 0;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.94);
-    max-height:   15.5vh;
+    height:   15.5vh;
     /*align-content: center;*/
 }
 button
@@ -42,20 +42,19 @@ button:focus
     float: left;
     /*color: aliceblue;*/
     font-size: 1.5vw;
-    width: auto;
-    height: auto;
+    height: 15vh;
 }
 .banner-right
 {
     float: right;
+    height: 15vh;
     width: auto;
-    height: auto;
 }
 img
 {
     cursor: pointer;
-    max-height: 4vh;
-    width: auto;
+    height: 12vh;
+    max-width: 100%;
     padding: 2vh;
 }
 
@@ -144,7 +143,7 @@ ul
 .panel-center
 {
     max-width: 70vw;
-    min-width: 10vw;
+    min-width: 15vw;
     height: 82vh;
     margin: auto;
     overflow: hidden;
