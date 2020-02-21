@@ -7,15 +7,17 @@ const pageArea      = document.querySelector('.page-display');
 
 var currentButton;
 var nextButton;
+var title;
 
-const  getCurrentButton = () =>
+
+var  getCurrentButton = () =>
 {
-    currentButton = document.querySelector('.navButton-selected');
+   return document.querySelector('.navButton-selected');
 }
 
 const setCurButton = (nBtn) =>
 {
-    getCurrentButton();
+    currentButton = getCurrentButton();
     
     if (currentButton != null)
     {
@@ -29,16 +31,26 @@ const setCurButton = (nBtn) =>
     }
 }
 
-const loadPage = (page, button, title) =>
-{
+const loadPage = (page, button, inputTitle) =>
+{   
     $(pageArea).attr('src',page);
     setCurButton(button);
-    document.title = title;
+    
+    
+    title           = inputTitle;
+    document.title  = title;
 }
 
 
 
 window.onload = () =>
 {
-    //loadPage("test.html",false);
+    if(getCurrentButton != null && title != null)
+    {
+        document.title = title;
+    }
+    else
+    {
+        $(pageArea).attr('src','html/landingPage.html');
+    }
 }

@@ -10,6 +10,7 @@ body
     -moz-background: url(/resources/bg_gif.gif),no-repeat;
     -moz-background: cover;
     
+    cursor:context-menu;
     font-family: 'FantasqueSansMonoRegular';
     color: #54bf40;
 }
@@ -21,7 +22,7 @@ body
 
 .mainBody
 {
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgba(0, 0, 0, 0.83);
     height: 100vh;
     width: 100vw;
     left: 0;
@@ -75,7 +76,7 @@ img
   animation: shake 0.5s;
 
   /* When the animation is finished, start again */
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 .inner-left
@@ -118,8 +119,8 @@ ul
 
 .panel
 {
-    min-width: 5vw;
-    max-width: 12vw;
+    min-width: 20vw;
+    max-width: 30vw;
     text-align: center;
     height: 40vh;
     display:inline-grid;
@@ -136,7 +137,7 @@ ul
     margin:     auto 0;
     background: transparent;
     border-style: none;
-    color: aliceblue;
+    color: #54bf40;
 }
 
 .panel-left
@@ -163,7 +164,7 @@ ul
 {
     display: block;
     margin: auto;
-    width: 101.5%;
+    width: 102%;
     padding: 5vh;
     height: 100%;
     border-style: none;
@@ -173,18 +174,19 @@ ul
 
 .navButton-selected
 {
- background-color: rgba(0, 0, 0, 0.94);   
-        color: #54bf40;
+    background-color: rgba(0, 0, 0, 0.94);   
+    color: aliceblue;
 }
 
 .navButton:hover
 {
-        color: #54bf40;
+    color: aliceblue;
     background-color: rgba(0, 0, 0, 0.94); 
-      /* Start the shake animation and make the animation last for 0.5 seconds */
-  animation: shake 0.5s;
+    
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
 
-  /* When the animation is finished, start again */
-  animation-iteration-count:1;
+    /* When the animation is finished, start again */
+    animation-iteration-count:1;
 }
 

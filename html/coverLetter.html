@@ -10,62 +10,97 @@
         <style>
             body 
             {
-                /*background: url(/resources/iframe%20bgimage.png);
-                background-size: cover;
-                background-repeat: no-repeat;
-                
-                -webkit-background: url(/resources/iframe%20bgimage.png);
-                -webkit-background-size: cover;
-                -webkit-background-repeat: no-repeat;
-                
-                -moz-background: url(/resources/iframe%20bgimage.png);
-                -moz-background-size: cover;
-                -moz-background-repeat: no-repeat;*/
-                
                 text-align: center;
                 align-content: center;
                 color: #54bf40;
                 font-size: 3.5vw;
                 font-family: 'FantasqueSansMonoRegular';
             }
-            h1
+            ul,p
             {
-                font-family: 'FantasqueSansMonoRegular';
+                text-align: left;
+                list-style:inside square;
+                cursor:context-menu;
             }
-            h2
+            li:hover
             {
-                font-family: 'FantasqueSansMonoRegular';
+                color: aliceblue;
+            }
+            p:hover
+            {
+                color: aliceblue;    
             }
         </style>
         
-        <h1>About Me...</h1>
-        <div class="aboutMe"></div>
-        <script>
-            
-            var abtMe;
-            const abMeFile = "/resources/aboutMe.TXT";
-            const printArea = document.querySelector('.aboutMe');
-            
-            window.onload = () => {readTextFile(abMeFile);}
-            
-            function readTextFile(file)
-            {
-                var rawFile = new XMLHttpRequest();
-                rawFile.open("GET", file, false);
-                rawFile.onreadystatechange = function ()
-                {
-                    if(rawFile.readyState === 4)
-                    {
-                        if(rawFile.status === 200 || rawFile.status == 0)
-                        {
-                            var allText = rawFile.responseText;
-                            //alert(allText);
-                            printArea.innerHTML = allText;
-                        }
-                    }
-                }
-                rawFile.send(null);
-            }
-        </script>
+
+            <h1>What Motivates Me?</h1>
+            <ul>
+                <li>My Family</li>
+                <li>The desire to be successful</li>
+                <li>What Does Success Look like To me?
+                    <ul>
+                        <li>Happy/Healthy Children</li>
+                        <li>Having a Career That I Enjoy</li>
+                        <li>Being Financially Comfortable</li>
+                    </ul></li>
+            </ul>
+            <h1>My Career Goals</h1>
+            <ul>
+                <li>Gain an internship or junior/Grad position</li>
+                <li>Become a Software/Fullstack Developer</li>
+                <li>Learn &amp; Grow as a Developer</li>
+                <li>Ultimate Goal&#58; Become a Game Programmer</li>
+            </ul>
+            <h1>My Personal Goals</h1>
+            <ul>
+                <li>Finish My Diploma</li>
+                <li>Finish My Bachelors Degree</li>
+                <li>Learn &amp; Achieve as much as I can</li>
+                <li>Be the Best Father I can be</li>
+                <li>Travel the world</li>
+            </ul>
+            <h1>What I am looking for in an employer</h1>
+            <ul>
+                <li>Career development</li>
+                <li>Positive work environment</li>
+                <li>Productive &amp; Collaborative environment</li>
+            </ul>
+            <h1>My Hobbies</h1><p>
+            <ul>
+                <li>Programming</li>
+                <li>Game Development</li>
+                <li>Musician</li>
+                <li>Gaming</li>
+            </ul>
+        
+                <h1>About Me...</h1>
+        <div class="aboutMe">
+            <p>
+                Hello,<br/>
+                My Name is Anton. I am 30 Years old,<br> I have three children.
+                I am a hobbyist Game Developer, in the 'Games' Section of this Website<br/> 
+                you will find some of my creations.<br/> 
+            </p>
+            <p>
+                I first took up Game Deveopment 6 years ago<br/>
+                after a bit of researching I found the Unity3D Game Engine.
+                I found I quite enjoyed playing around with it and building scenes.
+                 Eventually I started to get into the programming side of Game&#45;dev &amp; loved it.<br/>
+                Since then I have been practicing, learning and developing my skills
+                in hopes that I could one day become a Software Engineer<br/>  
+            </p>
+            <p>
+                Early last year &#40;2019&#41; I decided to resign from my position
+                 as Butchery Manager at Raeward Fresh Harewood to pursue my dream career.<br/>
+                Since then I have undertaken a Diploma in Web Development through The Open Polytech<br/>
+                I have been really enjoying studying knowing that I am working towards my future!<br/>
+                since I have been studying I have achieved some great results 
+                 and have almosted completed my Diploma!<br/>
+            </p>
+            <p>
+                Starting March 2020 I will be starting a Bachelors Degree in IT
+                I am hoping to have this completed by mid 2021.
+            </p>
+        </div>
     </body>
 </html>
