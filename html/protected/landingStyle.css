@@ -12,6 +12,8 @@ button
 {
     border-radius: 25px;
     display: inline-grid;
+    -moz-display: inline-grid;
+    -webkit-display: inline-grid;
     width: 17vw;
     height: 17vw;
     padding: 1vw;
@@ -19,6 +21,8 @@ button
     background: transparent;
     overflow: hidden;
     text-align: center;
+    align-self: auto;
+    align-items: center;
 }
 img
 {
@@ -68,7 +72,6 @@ button:focus
 {
     text-align: center;
 }
-
 .linkB:hover
 {
       /* Start the shake animation and make the animation last for 0.5 seconds */
