@@ -21,7 +21,7 @@ button
     background: transparent;
     overflow: hidden;
     text-align: center;
-    align-self: auto;
+    align-self:baseline;
     align-items: center;
 }
 img
