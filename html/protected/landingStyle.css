@@ -12,9 +12,9 @@ button
 {
     border-radius: 25px;
     display: inline-grid;
-    width: 18vw;
-    height: 18vw;
-    padding: 1.5vw;
+    width: 17vw;
+    height: 17vw;
+    padding: 1vw;
     border: 0;
     background: transparent;
     overflow: hidden;
