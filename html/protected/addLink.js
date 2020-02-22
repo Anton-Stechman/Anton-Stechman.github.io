@@ -83,8 +83,8 @@ function add_new_link()
     }
 }
 
-addButton.addEventListener('click', function(){add_new_link();});
-resButton.addEventListener('click', function(){clear_prefs();});
+/*addButton.addEventListener('click', function(){add_new_link();});
+resButton.addEventListener('click', function(){clear_prefs();});*/
 
 window.onload = () =>
 {
