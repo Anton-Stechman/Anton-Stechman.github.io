@@ -9,8 +9,8 @@ public class Main implements calculate
 	public static window a_window;
 	public static window v_window;
 	
-	static Integer default_width 	= 600;
-	static Integer default_height 	= 400;
+	static Integer default_width 	= 400;
+	static Integer default_height 	= 600;
 	
 	static String mainTitle = "Circumference, Area & Volume Calculator";
 	static String c_title 	= "Calculate Circumference";

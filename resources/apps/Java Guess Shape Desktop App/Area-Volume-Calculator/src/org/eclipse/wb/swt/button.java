@@ -22,7 +22,6 @@ public class button extends Main
 	{
 		//Create Button
 		thisButton = new JButton();
-		
 		thisButton.setName(b_type.toString());
 		thisButton.setText(getButtonType());
 		thisButton.setVisible(true);
@@ -152,7 +151,5 @@ public class button extends Main
 		}
 		
 		thisButton.addActionListener(listener);
-		
-
 	}
 }

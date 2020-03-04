@@ -6,7 +6,8 @@ public interface calculate
 	
 	public static double calc_pi(double r) 
 	{
-		return (pi * r) * r;
+		double d = pi * r;
+		return  Math.pow(d, 2);
 	}
 	public static double calc_area(double l, double w) 
 	{

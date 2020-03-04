@@ -8,5 +8,4 @@ public enum buttonType
 	calc,
 	back,
 	exit
-
 }
