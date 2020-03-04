@@ -10,12 +10,12 @@ public class window {
 	private Integer f_width;
 	private Integer f_height;
 	
-	//Buttons
+	//GUI Elements
 	private LinkedList<button> buttons;
 	
 	//Other
 	private String f_Title;
-	private windowType w_type;
+	public windowType w_type;
 	
 	public boolean isActiveWindow;
 	
@@ -37,16 +37,41 @@ public class window {
 		build_window();
 	}
 	
+
 	private void build_window() 
 	{
+		//TODO: Add Input Elements
+		if (w_type != windowType.menu) 
+		{
+			frame.add(new TextArea());
+			frame.add(new TextArea());
+		}
+		build_buttons();
+		setVisibility();
+		
 		frame.setSize(f_width, f_height);
-		frame.setVisible(isActiveWindow);
 		frame.setTitle(f_Title);
 		frame.setResizable(false);
 		frame.setLocation(getCenter(0));
+		frame.setLayout(new GridLayout(getElementAmount(), 1));
 		
-		build_buttons();
+		for(button b : buttons) 
+		{
+			frame.add(b.thisButton);
+			System.out.println(b.thisButton.getName());
+		}
+	
 		
+		if (w_type == windowType.menu) 
+		{
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		}
+		
+	}
+	
+	public void setVisibility() 
+	{
+		frame.setVisible(isActiveWindow);
 	}
 	
 	private Point getCenter(int padding) 
@@ -60,6 +85,22 @@ public class window {
 		
 		return new Point(x,y);
 	}
+	
+	private Integer getElementAmount() 
+	{
+		switch(w_type) 
+		{
+			case menu:
+			{
+				return buttons.size();
+			}
+			default:
+			{
+				return 0;
+			}
+		}
+	}
+	
 	private void build_buttons() 
 	{
 		switch(w_type) 
@@ -67,12 +108,10 @@ public class window {
 			case menu:
 			{
 				buttons.add(new button(buttonType.c_btn));
-				buttons.add(new button(buttonType.a_btn));
+				buttons.add(new button(buttonType.a_btn));		
 				buttons.add(new button(buttonType.v_btn));
 				buttons.add(new button(buttonType.exit));
-				positionButtons();
-				
-				System.out.println("Working: " + w_type);
+				//System.out.println("Working: " + w_type);
 				break;
 			}
 			
@@ -80,24 +119,10 @@ public class window {
 			{
 				buttons.add(new button(buttonType.calc));
 				buttons.add(new button(buttonType.back));
-				buttons.add(new button(buttonType.exit));
-				System.out.println("Working: " + w_type);
-				positionButtons();
+				//System.out.println("Working: " + w_type);
 				break;
 			}
 		}
-	}
-	
-	private void positionButtons() 
-	{
-		int padding = 10;
-		
-		for (int i = 0; i < buttons.size(); i++) 
-		{
-			buttons.get(i).thisButton.setLocation(getCenter(padding));
-			padding += 60; // Button Height + 10
-		}
-	}
-	
+	}	
 
 }
