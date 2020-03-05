@@ -1,7 +1,11 @@
 package org.eclipse.wb.swt;
 import java.util.*;
 
-public class Main implements calculate 
+import javax.swing.JTextField;
+
+import com.ibm.icu.text.DecimalFormat;
+
+public class Main
 {
 
 	public static window mainMenu;
@@ -19,7 +23,7 @@ public class Main implements calculate
 	
 	static LinkedList<window> allWindows;
 	
-	public static void main(String[] args) {
+	public static void init() {
 		// TODO Auto-generated method stub
 		
 		//Create Main Menu
@@ -37,7 +41,6 @@ public class Main implements calculate
 	
 	public void buttonClick(windowType t, boolean isExit) 
 	{
-		System.out.println("Working " + t);
 		if (!isExit) 
 		{
 			for (window w : allWindows) 
@@ -59,5 +62,132 @@ public class Main implements calculate
 			System.exit(0);
 		}
 	}
+	
+	public void calcButtonClick() 
+	{
+		window curWindow = null;
+		
+		//Get the Active window
+		for (window w : allWindows) 
+		{
+			if (w.isActiveWindow) 
+			{
+				curWindow = w;
+			}
+		}
+		
+		
+		LinkedList<JTextField> tFields = new LinkedList<JTextField>(); 
+		DecimalFormat df = new DecimalFormat("####0.00");
+		
+		//perform calculations based on active window
+		switch(curWindow.w_type) 
+		{
+
+			case circumference:
+			{
+				tFields.add(curWindow.r_input);
+				
+				if(checkForInputError(tFields)) 
+				{
+					double r 	= calc_pi(Double.parseDouble(curWindow.r_input.getText()));
+					String s 	= df.format(r);
+					
+					curWindow.r_output.setText("Circumference = " + s + " UoM");
+				}
+				else 
+				{
+					curWindow.r_output.setText("Input Error! \nPlease Try Again...");
+				}
+				break;
+			}
+			case area:
+			{
+				tFields.add(curWindow.w_input);
+				tFields.add(curWindow.l_input);
+				
+				if(checkForInputError(tFields)) 
+				{
+					double w = Double.parseDouble(curWindow.w_input.getText());
+					double l = Double.parseDouble(curWindow.l_input.getText());
+					double r = calc_area(w,l);
+
+					String s 	= df.format(r);
+					
+					curWindow.r_output.setText( "Area = " + s + " UoM\u00B2");
+				}
+				else 
+				{
+					curWindow.r_output.setText("Input Error! \nPlease Try Again...");
+				}
+				break;
+			}
+			case volume:
+			{
+				tFields.add(curWindow.w_input);
+				tFields.add(curWindow.l_input);
+				tFields.add(curWindow.h_input);
+				
+				if(checkForInputError(tFields)) 
+				{
+					double w = Double.parseDouble(curWindow.w_input.getText());
+					double l = Double.parseDouble(curWindow.l_input.getText());
+					double h = Double.parseDouble(curWindow.h_input.getText());
+					double r = calc_vol(w,l,h);
+					String s = df.format(r);
+					
+					curWindow.r_output.setText("Volume = " + s + " UoM\u00B3");
+				}
+				else 
+				{
+					curWindow.r_output.setText("Input Error! \nPlease Try Again...");
+				}
+				break;
+			}
+			default:
+			{
+				break;
+			}
+		}
+	}
+
+	private boolean checkForInputError(LinkedList<JTextField> tFields) {
+		
+		boolean result = false;
+		
+		for (int i = 0; i < tFields.size(); i++) 
+		{
+			
+			try 
+			{
+				Double.parseDouble(tFields.get(i).getText());
+				result = true;
+			}
+			catch (Exception e) 
+			{
+				return false;
+				
+			}
+		}
+		return result;
+	}
+	
+	//Calculations Back End
+	static final double pi = Math.PI;
+	
+	public static double calc_pi(double r) 
+	{
+		double d = r * 2;
+		return  d * pi;
+	}
+	public static double calc_area(double l, double w) 
+	{
+		return l * w;
+	}
+	public static double calc_vol(double l, double w, double h) 
+	{
+		return l * w * h;
+	}
+	
 
 }

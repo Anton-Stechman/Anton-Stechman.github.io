@@ -1,10 +1,12 @@
 package org.eclipse.wb.swt;
 import java.awt.*;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.util.*;
 import javax.swing.*;
 
-public class window {
-	
+public class window 
+{
 	//Frame
 	private JFrame frame;
 	private Integer f_width;
@@ -12,6 +14,7 @@ public class window {
 	
 	//GUI Elements
 	private LinkedList<button> buttons;
+	private LinkedList<JTextField>textboxes;
 	
 	//Other
 	private String f_Title;
@@ -19,6 +22,11 @@ public class window {
 	
 	public boolean isActiveWindow;
 	
+	public JTextField r_input; //Radius Input
+	public JTextField w_input; //Width Input
+	public JTextField l_input; //Length Input
+	public JTextField h_input; //Height Input
+	public JTextField r_output; //Result Output
 
 	//New Window Constructor
 	public window(String fTitle, Integer fWidth, Integer fHeight, boolean active, windowType type) 
@@ -40,12 +48,11 @@ public class window {
 
 	private void build_window() 
 	{
-		//TODO: Add Input Elements
 		if (w_type != windowType.menu) 
 		{
-			frame.add(new TextArea());
-			frame.add(new TextArea());
+			buildElements();
 		}
+		
 		build_buttons();
 		setVisibility();
 		
@@ -58,7 +65,6 @@ public class window {
 		for(button b : buttons) 
 		{
 			frame.add(b.thisButton);
-			System.out.println(b.thisButton.getName());
 		}
 	
 		
@@ -96,7 +102,7 @@ public class window {
 			}
 			default:
 			{
-				return 0;
+				return buttons.size() + textboxes.size();
 			}
 		}
 	}
@@ -124,5 +130,126 @@ public class window {
 			}
 		}
 	}	
+	
+	private void buildElements() 
+	{
+		//Create List for Text Boxes
+		textboxes = new LinkedList<JTextField>();
+		
+		//Create Text Areas
+		r_input 	= new JTextField("Input Radius...");
+		w_input 	= new JTextField("Input Width...");
+		l_input 	= new JTextField("Input Length...");
+		h_input 	= new JTextField("Input Height...");
+		r_output	= new JTextField("Result Shown Here...");
+		
+		//Configure JTextFields
+		r_output.setEditable(false);
+		r_output.setBackground(Color.black);
+		r_output.setForeground(Color.gray);
+		r_output.setHorizontalAlignment(JTextField.CENTER);
+		r_output.setFont(new Font("Arial", Font.PLAIN, 25));
+		
+		setPlaceholders();
+		
+		switch (w_type) 
+		{
+			case circumference:
+			{
+				textboxes.add(r_output);
+				textboxes.add(r_input);
+				break;
+			}
+			case area:
+			{
+				textboxes.add(r_output);
+				textboxes.add(w_input);
+				textboxes.add(l_input);
+				break;
+			}
+			case volume:
+			{
+				textboxes.add(r_output);
+				textboxes.add(w_input);
+				textboxes.add(l_input);
+				textboxes.add(h_input);
+				break;
+			}
+			default:
+			{
+				textboxes = null;
+				break;
+			}
+		}
+		
+		if (textboxes != null) 
+		{
+			for (JTextField t : textboxes) 
+			{
+				frame.add(t);
+			}
+		}
+		
+	}
+	
+	private void setPlaceholders() 
+	{
+		JTextField[] fields = new JTextField[]
+		{
+			r_input,
+			w_input,
+			l_input,
+			h_input
+		};
+		String[] placeholders = new String[] 
+		{
+				"Input Radius...",
+				"Input Width...",
+				"Input Length...",
+				"Input Height..."
+		};
+		
+		
+		//Configure Text Areas	
+		for (int i = 0; i < fields.length; i++) 
+		{
+			JTextField f 	= fields[i];
+			String p 		= placeholders[i];
+			
+			FocusListener focus = new FocusListener() 
+			{
+				@Override
+				public void focusGained(FocusEvent e) 
+				{
+					if (f.getText() != "") 
+					{
+						f.setForeground(Color.white);
+						f.setText(null);
+					}
+					
+				}
+
+				@Override
+				public void focusLost(FocusEvent e) {
+			
+					try 
+					{
+						Double.parseDouble(f.getText());
+					}
+					catch (Exception c) 
+					{
+						f.setForeground(Color.gray);
+						f.setText(p);
+					}
+				}
+				
+			};
+			f.setFont(new Font("Arial", Font.PLAIN, 25));
+			f.setHorizontalAlignment(JTextField.CENTER);
+			f.setForeground(Color.gray);
+			f.setBackground(Color.black);
+			f.addFocusListener(focus);
+		}
+	}
 
 }

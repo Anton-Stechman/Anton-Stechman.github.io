@@ -1,6 +1,7 @@
 package org.eclipse.wb.swt;
 
 
+import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
@@ -26,6 +27,24 @@ public class button extends Main
 		thisButton.setText(getButtonType());
 		thisButton.setVisible(true);
 		thisButton.setFocusable(false);
+		thisButton.setBackground(Color.black);
+		thisButton.setForeground(Color.gray);
+		thisButton.setFont(new Font("Arial", Font.PLAIN, 40));
+		
+		MouseAdapter m = new MouseAdapter() 
+		{
+			public void mouseEntered (MouseEvent e)
+			{
+				thisButton.setBackground(Color.darkGray);
+			}
+			public void mouseExited(MouseEvent e) 
+			{
+				thisButton.setBackground(Color.black);
+			}
+		};
+		
+		thisButton.addMouseListener(m);
+		
 		addClickEvent();
 	}
 	
@@ -114,6 +133,22 @@ public class button extends Main
 				};
 				break;
 			}
+			
+			case calc:
+			{
+				listener = new ActionListener() 
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// back to menu
+						calcButtonClick();
+					}
+					
+				};
+				break;
+			}
+			
 			case back:
 			{
 				listener = new ActionListener() 
